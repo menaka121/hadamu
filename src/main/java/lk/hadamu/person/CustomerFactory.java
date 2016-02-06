@@ -23,5 +23,6 @@ package lk.hadamu.person;
  * So we use factory class which sets the parameters and create a customer object.
  *
  */
+
 public class CustomerFactory {
 }

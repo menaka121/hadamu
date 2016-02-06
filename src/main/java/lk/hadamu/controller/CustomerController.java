@@ -14,15 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package lk.hadamu;
+package lk.hadamu.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication (scanBasePackages = {"lk.hadamu.controller"})
-public class HadamuApplication {
+/**
+ * Created by menaka on 2/7/16.
+ *
+ * Controller class for customer.
+ *
+ * Basically this is the JAX-RS for the application to create, edit and delete a customer.
+ */
 
-	public static void main(String[] args) {
-		SpringApplication.run(HadamuApplication.class, args);
-	}
+@RestController
+@RequestMapping("/customer")
+public class CustomerController {
+
+
+
 }
