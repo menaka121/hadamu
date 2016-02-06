@@ -59,6 +59,12 @@ public class Customer {
     private String userName;
     private String password;
 
+    /**
+     * Constructor
+     * */
+
+    public Customer(){}
+
     public String getFirstName() {
         return firstName;
     }
