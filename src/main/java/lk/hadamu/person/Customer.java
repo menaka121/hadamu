@@ -14,15 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package lk.hadamu;
+package lk.hadamu.person;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class HadamuApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(HadamuApplication.class, args);
-	}
+/**
+ * Created by menaka on 2/7/16.
+ */
+public class Customer {
 }
