@@ -16,8 +16,47 @@ limitations under the License.
 
 package lk.hadamu.person;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created by menaka on 2/7/16.
+ *
+ * The customer is the person who creates an account in the site, add information and manages the content.
+ * Can be :- an engineer, business owner, job seeker etc.
+ *
  */
 public class Customer {
+
+    /**
+     * A customer usually has an id
+     * */
+    @Id
+    private String id;
+
+    /**
+     * then first name, last name and middle name
+     * */
+    private String firstName;
+    private String middleName;
+    private String lastName;
+
+    /**
+     * A customer should have an address, telephone number and an e-mail address.
+     * */
+
+    private String addressLine1;
+    private String addressLine2;
+    private String addressLine3;
+    private String city;
+    private String district;
+    private String telephoneNumber;
+    private String emailAddress;
+
+    /**
+     * A customer should have a unique username and password for login.
+     * */
+
+    private String userName;
+    private String password;
+
 }
