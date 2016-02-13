@@ -14,56 +14,52 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package lk.hadamu.person;
+package lk.hadamu.core;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by menaka on 2/7/16.
- *
  * The customer is the person who creates an account in the site, add information and manages the content.
  * Can be :- an engineer, business owner, job seeker etc.
- *
  */
+@Document
 public class Customer {
 
     /**
      * A customer usually has an id
-     * */
+     */
     @Id
     private String id;
 
     /**
      * then first name, last name and middle name
-     * */
+     */
     private String firstName;
     private String middleName;
     private String lastName;
 
     /**
      * A customer should have an address, telephone number and an e-mail address.
-     * */
+     */
 
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
-    private String city;
-    private String district;
-    private String telephoneNumber;
-    private String emailAddress;
+    private Address address;
 
     /**
      * A customer should have a unique username and password for login.
-     * */
+     */
 
     private String userName;
     private String password;
 
+    private String emailAddress;
+
     /**
      * Constructor
-     * */
+     */
 
-    public Customer(){}
+    public Customer(){
+    }
 
     public String getFirstName() {
         return firstName;
@@ -89,62 +85,6 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
-    }
-
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
-    }
-
-    public String getAddressLine2() {
-        return addressLine2;
-    }
-
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
-    public String getAddressLine3() {
-        return addressLine3;
-    }
-
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -159,5 +99,18 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    @Override
+    public String toString() {
+        return this.firstName + this.middleName + this.lastName;
     }
 }

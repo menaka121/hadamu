@@ -16,21 +16,48 @@ limitations under the License.
 
 package lk.hadamu.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by menaka on 2/7/16.
- *
  * Controller class for customer.
- *
+ * <p>
  * Basically this is the JAX-RS for the application to create, edit and delete a customer.
  */
 
-@RestController
+@Controller
 @RequestMapping("/customer")
 public class CustomerController {
 
+    /**
+     * REST method for add a new customer
+     *
+     * @param username
+     * @param jsonData
+     */
 
+    @RequestMapping(value = "/register/{username}/{data}", method = RequestMethod.PUT)
+    public boolean register(@PathVariable(value = "username") String username,
+                            @PathVariable(value = "data") String jsonData) {
+        return false;
+    }
+
+    @RequestMapping(value = "/edit/{username}/{data}", method = RequestMethod.PUT)
+    public boolean editCustomer(@PathVariable(value = "username") String username,
+                                @PathVariable(value = "data") String jsonData) {
+        return false;
+    }
+
+    @RequestMapping(value = "/delete/{username}", method = RequestMethod.DELETE)
+    public boolean delete(@PathVariable(value = "username") String username) {
+        return false;
+    }
+
+    @RequestMapping(value = "/view/{username}", method = RequestMethod.GET)
+    public boolean viewCustomer(@PathVariable(value = "username") String username) {
+        return false;
+    }
 
 }
