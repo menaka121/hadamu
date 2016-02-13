@@ -3,6 +3,7 @@ package lk.hadamu.dao;
 import lk.hadamu.core.Customer;
 import lk.hadamu.core.CustomerRepository;
 import lk.hadamu.dto.CustomerDTO;
+import lk.hadamu.exceptions.CustomerNotFoundException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,13 @@ public class CustomerServiceDAOImpl implements CustomerServiceDAO {
     }
 
     @Override
-    public Customer findByUserName(String username) {
-        Customer found;
-        try {
-            found = customerRepository.findOne(username);
-            return found;
-        } catch (Exception e) {
-            log.error("No User found " + e);
-            return null;
+    public Customer findByUserName(String username) throws CustomerNotFoundException {
+        Customer exists = customerRepository.findOne(username);
+
+        if (exists != null) {
+            return exists;
+        } else {
+            throw new CustomerNotFoundException(username);
         }
     }
 
@@ -48,8 +48,13 @@ public class CustomerServiceDAOImpl implements CustomerServiceDAO {
     }
 
     @Override
-    public boolean delete(String username) {
-
-        return false;
+    public boolean delete(String username) throws CustomerNotFoundException {
+        Customer toDelete = customerRepository.findOne(username);
+        if (toDelete != null) {
+            customerRepository.delete(toDelete);
+            return true;
+        } else {
+            throw new CustomerNotFoundException(username);
+        }
     }
 }
